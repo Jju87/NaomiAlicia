@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&display=swap');     
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Rubik+Wet+Paint&display=swap');
+
+@mixin font-titre {
+    font-family: 'Rubik Wet Paint';
+    font-size: 1.1em;
+    color:rgba(248, 131, 176, 0.8);
+    letter-spacing: 5px;
+    mix-blend-mode:color-burn;
+}
+@mixin bois-bleu{
+    background-image: url("/images-layout/ashkan-forouzani-TnXMvJsCTpA-unsplash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat; 
+    margin:0;
+    background-position: center;
+}
+body{
+    
+    margin:0 auto;
+    box-shadow: -20px 40px 50px 120px rgba(0, 0, 0, 0.7); 
+}
+
+    
+.background{
+   @include bois-bleu;
+    position: relative;
+    height:200vh;
+    width:100vw
+}
+.frame-shadow{
+    position:absolute;
+    top: 0;
+    left:0;
+    right:0;
+    bottom:0;
+
+    box-shadow: inset -5px 7px 40px 35px rgba(0, 0, 0, 0.7);
+}
+.text-wrap{
+    @include font-titre;
+    transform:scale(1.1);
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vw;
+    &__text{
+        text-align: center;
+        width:80vw;
+        mix-blend-mode: overlay;
+        padding-top: 46px;
+        transform: rotate(-6deg);
+    }
+}
+
+.acceuil{
+    transform: scale(0.95) translateY(-8vh); 
+    margin-top:0;
+    margin-left:auto;
+    margin-right:auto;
+    display: flex;
+    width: 80vw;
+    &__left{
+        width: 35vw;
+        padding: 5vw;
+       
+        &--paper{
+            display: flex;
+            text-align: justify;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 410px;
+            height: 510px;
+            margin-left: auto;
+            position: relative;
+            & img{
+                width: 100%;
+                height:100%; 
+                object-fit: cover;
+            }
+            & p{
+                font-family: 'caveat';
+                font-size: 1.5em;
+                position: absolute;
+                transform: rotate(-24deg) translateX(-10px);
+                color: rgba(33, 14, 77, 0.8);
+                text-align: center;
+            & a{
+                text-decoration: none;
+            }
+            & a:hover{
+                opacity: 0.8;
+            }
+        }
+        }
+    }
+    &__right{
+        width:35vw;
+        padding: 5vw;
+        &--polaroid{
+            transform-origin: top;
+            width: 410px;
+            height: 510px;
+            margin-right: auto;
+            margin-bottom:150px;
+            position: relative;
+            transform:rotate(12deg);
+            &-contour{
+                width: 410px;
+                height: 510px;
+                filter: drop-shadow(-9px 10px 3px rgba(0,0,0,0.7));
+            }      
+        }
+        &--famille{
+            position: absolute;
+            top: 44px;
+            left: 52px;
+            right:51px;
+            bottom:127px;
+            
+            &-interieur {
+                width: 100%;
+                height:100%; 
+                object-fit: cover;
+                transition: 1s ease;
+            }
+            &:hover{
+                box-shadow: inset -20px 40px 55px 20px black;
+            }
+            &-shadow{
+                top:0;
+                left:0;
+                right:0;
+                bottom:0;
+                position: absolute;
+                transition: 0.3s ease-out;
+                box-shadow: inset -20px 40px 55px 120px black;
+
+                &:hover{
+                box-shadow: inset 0px 0px 55px 20px black;
+                cursor: url(/images-layout/icons8-costume-de-coeur-48.png), pointer;
+
+                }
+                &:active{
+                
+                    cursor: url(/images-layout/icons8-cœur-battant-48.png), pointer;
+                }
+    
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 996px) {
+    .background{
+        background-size:cover;
+        width: 100vw;
+        height: 400vh;
+        background-repeat: no-repeat;
+    }
+    .text-wrap{
+        transform: scale(0.9);
+        text-wrap: wrap;
+        padding-top:0;
+        display: flex;
+        justify-content: center;
+        &__text{
+            padding-top:7vh;
+        }
+    }
+    .acceuil{
+        flex-direction: column;
+        justify-content: center;
+        transform: translateY(-15vh);
+        &__left{
+            width: 70vw;
+            &--paper{
+                margin: auto;
+            }
+        }
+        &__right{
+            width: 70vw;
+            &--polaroid{
+                margin:auto
+            }
+            &--famille{
+                &-shadow{
+                    box-shadow: inset 5px 5px 55px 20px black;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+    .background{
+        height:170vh;
+    }
+    .acceuil{
+        width:100vw;
+        transform: scale(0.42) translateY(-900px);
+    }
+    .text-wrap{
+        transform: scale(0.8);
+        text-wrap: wrap;
+        padding-top:0;
+        display: flex;
+        justify-content: center;
+        &__text{
+            padding-top:7vh;
+            padding-bottom: 5vh;
+        }
+    }
+}
